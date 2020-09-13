@@ -21,16 +21,11 @@ def eucl_dist(row1, row2):
 	distance = sum(np.subtract(row1,row2)**2)  # use L2 norm
 	return distance**(0.5)
 
-def manh_dist(row1,row2):
-    distance = sum(abs(np.subtract(row1,row2)))
-    return distance
-
 # Get the k nearest neighbors and the values of their features
 def get_kNN(traindata, data_point, k):
     distances = list()
     for p1 in range(traindata.shape[0]):
-        #dist = eucl_dist(traindata[p1],data_point)        
-        dist = manh_dist(traindata[p1],data_point)
+        dist = eucl_dist(traindata[p1],data_point)
         distances.append((p1, dist))
     distances.sort(key=lambda tup:tup[1]) # sort distance (second column)
     neighbors = list()
