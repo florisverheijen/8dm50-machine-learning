@@ -33,9 +33,16 @@ def get_kNN(traindata, data_point, k):
         neighbors.append(distances[n][0])
     return neighbors, traindata[neighbors] # returns the values of the features of the k closest neighbors
 
-# Make predictions
+# Make predictions for classification
 def pred(traindata, traintargets, testdata, k):
     NN, NN_data = get_kNN(traindata, testdata, k)
     y_NN = [traintargets.item(i) for i in NN]
     prediction = max(set(y_NN), key=y_NN.count)
     return prediction #prediction.reshape((prediction.shape[0],1))
+
+# Make predictions for regression 
+def pred_regression(traindata, traintargets, testdata, k):
+    NN, NN_data = get_kNN(traindata, testdata, k)
+    y_NN = [traintargets.item(i) for i in NN]
+    prediction = np.average(y_NN)
+    return prediction
