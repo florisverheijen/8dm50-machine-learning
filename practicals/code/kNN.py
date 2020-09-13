@@ -38,7 +38,7 @@ def pred(traindata, traintargets, testdata, k):
     NN, NN_data = get_kNN(traindata, testdata, k)
     y_NN = [traintargets.item(i) for i in NN]
     prediction = max(set(y_NN), key=y_NN.count)
-    return prediction #prediction.reshape((prediction.shape[0],1))
+    return prediction
 
 # Make predictions for regression 
 def pred_regression(traindata, traintargets, testdata, k):
