@@ -13,7 +13,7 @@ def solve(m1,m2,std1,std2):
     c = m1**2 /(2*std1**2) - m2**2 / (2*std2**2) - np.log(std2/std1)
     return np.roots([a,b,c])
 
-def graphselect1(neg_gauss,pos_gauss):
+def graphselect1(neg_gauss,pos_gauss,mean_pos,std_pos,mean_neg,std_neg):
     if neg_gauss[0] < pos_gauss[0]: 
         mean1 = mean_neg
         std1 = std_neg
@@ -28,10 +28,13 @@ def graphselect1(neg_gauss,pos_gauss):
         
     return(mean1,std1,mean2,std2)
 
-def gauss_func_1(Xaxis,mean1,std1):
+def gauss_func_1(Xaxis):
+    
     value = scipy.stats.norm.pdf(Xaxis,mean1,std1)
     return value
 
-def gauss_func_2(Xaxis,mean2,std2):
+def gauss_func_2(Xaxis):
     value = scipy.stats.norm.pdf(Xaxis,mean2,std2)
     return value
+
+
