@@ -29,8 +29,8 @@ def manh_dist(row1,row2):
 def get_kNN(traindata, data_point, k):
     distances = list()
     for p1 in range(traindata.shape[0]):
-        #dist = eucl_dist(traindata[p1],data_point)        
-        dist = manh_dist(traindata[p1],data_point)
+        dist = eucl_dist(traindata[p1],data_point)        
+        #dist = manh_dist(traindata[p1],data_point)
         distances.append((p1, dist))
     distances.sort(key=lambda tup:tup[1]) # sort distance (second column)
     neighbors = list()
