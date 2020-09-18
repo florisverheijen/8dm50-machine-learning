@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 16 11:28:44 2020
+Functions to calculate the class conditional probability (last question).
 
-@author: s152040
+Group 2
 """
 import numpy as np
 import scipy
